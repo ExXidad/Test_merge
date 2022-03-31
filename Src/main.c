@@ -107,11 +107,11 @@ int main(void)
     else
     {
       HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
-      // HAL_Delay(100);
+      HAL_Delay(100);
       HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-      // HAL_Delay(100);
+      HAL_Delay(100);
       HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
-      // HAL_Delay(100);
+      HAL_Delay(100);
     }
     /* USER CODE BEGIN 3 */
   }
