@@ -87,6 +87,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM1_Init();
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   /* USER CODE BEGIN 2 */
 
   bool enableLed = false;
@@ -115,6 +116,12 @@ int main(void)
       HAL_Delay(100);
       HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
       HAL_Delay(100);
+    }
+
+    for (int i = 0; i <= 255; i++)
+    {
+      TIM1->CCR1 = i;
+      HAL_Delay(3);
     }
 
     /* USER CODE BEGIN 3 */
