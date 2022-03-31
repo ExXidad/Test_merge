@@ -118,10 +118,9 @@ int main(void)
       HAL_Delay(100);
     }
 
-    for (int i = 0; i <= 255; i++)
+    for (int i = 0; i < 2000; i += 100)
     {
       TIM1->CCR1 = i;
-      HAL_Delay(3);
     }
 
     /* USER CODE BEGIN 3 */
