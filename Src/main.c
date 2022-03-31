@@ -20,6 +20,7 @@
 #include "main.h"
 #include "tim.h"
 #include "gpio.h"
+#include <stdbool.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -88,8 +89,8 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  bool buttonWasPressed = false;
   bool enableLed = false;
+  HAL_GPIO_WritePin(VPLUS_GPIO_Port, VPLUS_Pin, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -98,14 +99,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    if (!enableLed && HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin))
-    {
-      enableLed = true;
-    }
-    else if (enableLed && HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin))
-    {
-      enableLed = false;
-    }
+    enableLed = HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin);
 
     if (enableLed)
     {
